@@ -1,19 +1,26 @@
 class Plinko{
-    constructor(x,y){
+    constructor(x,y,angle){
         var options = {
             isStatic: true
         }
-        this.w = 20;
-        this.h = 20;
-        this.body = Bodies.circle(x,y,10,options);
+        this.w = 15;
+        this.h = 15;
+        this.body = Bodies.rectangle(x,y,15,15,options);
+        Matter.Body.setAngle(this.body, angle);
         World.add(world,this.body);
     }
 
     display(){
-        var pos = this.body.position;
+        
+        var pos =this.body.position;
+        var angle = this.body.angle;
 
-        ellipseMode(CENTER);
-        fill(255);
-        ellipse(pos.x,pos.y,this.w,this.h);
+      push();
+      translate(pos.x,pos.y)
+      rotate(angle);
+      rectMode(CENTER);
+      fill(txtcolor);
+      rect(0,0,this.w,this.h);
+      pop();
     }
-}
+    }

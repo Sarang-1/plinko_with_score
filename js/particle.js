@@ -2,11 +2,12 @@ class Particle{
     constructor(x,y){
         var options = {
             
-            restitution: 0.5
+            restitution: 0.5,
+            friction: 0.0
         }
-        this.w = 10;
-        this.h = 10;
-        this.body = Bodies.circle(x,y,10,options);
+        this.w = 30;
+        this.h = 30;
+        this.body = Bodies.circle(x,y,15,options);
         this.color = color(random(0,255),random(0,255),random(0,255));
         World.add(world,this.body);
     }
@@ -19,7 +20,7 @@ class Particle{
         translate(pos.x,pos.y);
         rotate(angle);
         fill(this.color);
-        ellipseMode(RADIUS);
+        ellipseMode(CENTER);
         ellipse(0,0,this.w,this.h);
         pop();
     }

@@ -4,5 +4,5 @@ html, body {
 }
 canvas {
   display: block;
-  border: 12px solid rgb(235, 89, 5);
+  border: 12px solid maroon;
 }
